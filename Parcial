@@ -1,0 +1,54 @@
+
+
+#include <iostream>
+#include <string>
+
+// Estructura de datos donde se guardara la informacion suministrada 
+struct Producto {
+    std::string nombre;
+    std::string laboratorio;
+    std::string proveedor;
+    std::string monodrogas;
+    std::string presentacion;
+    int cantidad;
+};
+
+struct Empleado {
+    std::string nombre;
+    std::string apellido;
+    std::string cedula;
+    std::string telefono;
+};
+
+struct Sucursal {
+    std::string nombre;
+    std::string ubicacion;
+    Producto productos[100];
+    Empleado empleados[2];
+    Empleado farmaceutico;
+};
+
+int main() {
+    // Creación de las sucursales
+    
+    Sucursal sucursales[6];
+    for (int i = 0; i < 6; ++i) {
+        sucursales[i].cantidadProductos = 0;
+    }
+
+    // Agregar productos a una sucursal 
+    
+    Producto producto1 = {"Paracetamol", "Laboratorio A", "Proveedor X", "Monodroga1", "Presentacion1", 100};
+    agregarProducto(sucursales[0], producto1);
+
+    Producto producto2 = {"Ibuprofeno", "Laboratorio B", "Proveedor Y", "Monodroga2", "Presentacion2", 50};
+    agregarProducto(sucursales[0], producto2);
+    
+ 
+
+    // Mostrar la información de la sucursal de ejemplo
+    mostrarSucursal(sucursales[0]);
+
+    return 0;
+}
+
